@@ -1,0 +1,30 @@
+{
+  "name": "demo-ds",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run --passWithNoTests"
+  },
+  "dependencies": {
+    "@loom/primitives": "workspace:*",
+    "@loom/compiler": "workspace:*",
+    "lucide-react": "^1.0.0",
+    "class-variance-authority": "^0.7.1",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "vite": "^8.3.2",
+    "vitest": "^4.0.3"
+  }
+}

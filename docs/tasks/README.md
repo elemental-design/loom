@@ -1,0 +1,23 @@
+# Tasks
+
+Do tasks in order. Statuses: `todo` / `done`. One task per session; commit when done: `T03: <title>`.
+
+| ID | Title | Depends | Status |
+| --- | --- | --- | --- |
+| T00 | Monorepo scaffold | — | todo |
+| T01 | Palette generation + contrast validation | T00 | todo |
+| T02 | Token emitters (CSS, shadcn aliases, TS types) | T01 | todo |
+| T03 | Primitive shared types | T00 | todo |
+| T04 | Web primitives + primitives.css | T03 | todo |
+| T05 | demo-ds fixtures + demo app | T02, T04 | todo |
+| T06 | IR types, evaluator, extractor | T05 | todo |
+| T07 | Lint rules | T06 | todo |
+| T08 | Standalone web codegen + drift check | T07 | todo |
+
+T01–T02 (tokens) and T03–T04 (primitives) are independent tracks after T00 and may be done in either order.
+
+## Task file template (for adding tasks)
+
+`Goal` · `Read` (spec files only) · `Create/Modify` (exact paths) · `Spec` (precise behavior) · `Acceptance` (commands + named tests) · `Out of scope` · `Done when`.
+
+Keep each task under ~100 lines. If it needs more, split it.

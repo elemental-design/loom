@@ -81,6 +81,7 @@ out
 # Nuxt.js build / generate output
 .nuxt
 dist
+!examples/demo-ds/dist/
 .output
 
 # Gatsby files
@@ -136,6 +137,9 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# Loom
+packages/*/dist
 
 # Vite files
 vite.config.js.timestamp-*

@@ -1,0 +1,26 @@
+{
+  "name": "@loom/primitives",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts",
+    "./primitives.css": "./src/primitives.css"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "lucide-react": "^1.0.0"
+  },
+  "scripts": {
+    "build": "tsc --noEmit",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.3",
+    "@types/react": "^19.2.7",
+    "react": "^19.2.3"
+  }
+}
