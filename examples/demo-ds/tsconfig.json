@@ -3,5 +3,5 @@
   "compilerOptions": {
     "jsxImportSource": "react"
   },
-  "include": ["components", "vitest.config.ts"]
+  "include": ["components", "generated", "loom.config.ts", "loom.tokens.ts", "vitest.config.ts"]
 }

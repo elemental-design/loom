@@ -1,4 +1,6 @@
 import { Command } from "commander"
+import { buildTokens } from "./tokens/build.js"
+import { formatDiagnostic } from "./diagnostics.js"
 
 const program = new Command()
 
@@ -15,7 +17,11 @@ const notImplemented = () => {
 program
   .command("tokens build")
   .description("build tokens from loom.tokens.ts")
-  .action(notImplemented)
+  .action(async () => {
+    const diagnostics = await buildTokens(process.cwd())
+    for (const d of diagnostics) console.error(formatDiagnostic(d))
+    if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
+  })
 
 program.command("extract").description("extract components to IR").action(notImplemented)
 
