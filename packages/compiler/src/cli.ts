@@ -3,6 +3,7 @@ import { buildTokens } from "./tokens/build.js"
 import { formatDiagnostic } from "./diagnostics.js"
 import { runExtract } from "./extract/extract.js"
 import { runLint } from "./lint/lint.js"
+import { runGenWeb } from "./gen-web/gen.js"
 
 const program = new Command()
 
@@ -10,11 +11,6 @@ program
   .name("loom")
   .description("Loom compiler: tokens, extraction, lint, codegen")
   .version("0.0.0")
-
-const notImplemented = () => {
-  console.error("not implemented")
-  process.exit(1)
-}
 
 program
   .command("tokens build")
@@ -49,6 +45,10 @@ program
   .command("web")
   .option("--check", "compare to disk, write nothing, fail on drift")
   .description("generate standalone web components from IR")
-  .action(notImplemented)
+  .action(async (opts: { check?: boolean }) => {
+    const diagnostics = await runGenWeb(process.cwd(), opts)
+    for (const d of diagnostics) console.error(formatDiagnostic(d))
+    if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
+  })
 
 program.parseAsync(process.argv)
