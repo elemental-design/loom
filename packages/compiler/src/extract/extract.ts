@@ -77,6 +77,7 @@ function resolveRefIn(sf: SourceFile, tag: string): { ref: string; name: string 
 
 export interface FileResult {
   ir?: IRComponent
+  positions?: Map<string, { line: number; col: number }>
   diagnostics: Diagnostic[]
 }
 
@@ -95,10 +96,12 @@ export function extractFile(sf: SourceFile, source: string): FileResult {
     if (stmts.length !== 1 || !ret || !Node.isReturnStatement(ret)) {
       return fail("LOOM104", fn, "component body must be a single return statement")
     }
+    const positions = new Map<string, { line: number; col: number }>()
     const root = buildRoot(ret.getExpression() ?? ret, {
       params: new Set(params.map((p) => p.name)),
       call: helpers.call,
       resolveRef: (tag) => resolveRefIn(sf, tag),
+      positions,
     })
 
     const ir: IRComponent = {
@@ -113,7 +116,7 @@ export function extractFile(sf: SourceFile, source: string): FileResult {
     }
     const doc = componentDoc(fn)
     if (doc) ir.doc = doc
-    return { ir, diagnostics: [] }
+    return { ir, positions, diagnostics: [] }
   } catch (e) {
     if (!(e instanceof ExtractError)) throw e
     const { line, column } = e.node.getSourceFile().getLineAndColumnAtPos(e.node.getStart())

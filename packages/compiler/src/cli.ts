@@ -2,6 +2,7 @@ import { Command } from "commander"
 import { buildTokens } from "./tokens/build.js"
 import { formatDiagnostic } from "./diagnostics.js"
 import { runExtract } from "./extract/extract.js"
+import { runLint } from "./lint/lint.js"
 
 const program = new Command()
 
@@ -33,7 +34,14 @@ program
     if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
   })
 
-program.command("lint").description("run lint rules").action(notImplemented)
+program
+  .command("lint")
+  .description("run lint rules")
+  .action(async () => {
+    const diagnostics = await runLint(process.cwd())
+    for (const d of diagnostics) console.error(formatDiagnostic(d))
+    if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
+  })
 
 program
   .command("gen")

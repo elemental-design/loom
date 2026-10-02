@@ -6,6 +6,8 @@ export interface JsxEnv {
   params: Set<string>
   call: ExprCtx["call"]
   resolveRef(tag: string): { ref: string; name: string } | undefined
+  /** nodeId → position; attribute positions are keyed `nodeId@propName` */
+  positions?: Map<string, { line: number; col: number }>
 }
 
 const PRIMITIVES = new Set<string>([
@@ -75,6 +77,14 @@ function buildElement(el: JsxElement | JsxSelfClosingElement, id: string, vars: 
   const attrs = Node.isJsxElement(el) ? el.getOpeningElement().getAttributes() : el.getAttributes()
   const children = Node.isJsxElement(el) ? el.getJsxChildren() : []
   const props = buildProps(attrs, ctx, skip)
+  if (env.positions) {
+    const at = (n: Node) => {
+      const { line, column } = n.getSourceFile().getLineAndColumnAtPos(n.getStart())
+      return { line, col: column }
+    }
+    env.positions.set(id, at(el))
+    for (const a of attrs) if (Node.isJsxAttribute(a)) env.positions.set(`${id}@${a.getNameNode().getText()}`, at(a))
+  }
 
   if (PRIMITIVES.has(tag)) {
     const type = tag as PrimitiveName
