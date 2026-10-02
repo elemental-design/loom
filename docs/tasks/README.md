@@ -5,7 +5,7 @@ Do tasks in order. Statuses: `todo` / `done`. One task per session; commit when 
 | ID | Title | Depends | Status |
 | --- | --- | --- | --- |
 | T00 | Monorepo scaffold | — | done |
-| T01 | Palette generation + contrast validation | T00 | todo |
+| T01 | Palette generation + contrast validation | T00 | done |
 | T02 | Token emitters (CSS, shadcn aliases, TS types) | T01 | todo |
 | T03 | Primitive shared types | T00 | todo |
 | T04 | Web primitives + primitives.css | T03 | todo |
