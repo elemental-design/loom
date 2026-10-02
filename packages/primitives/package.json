@@ -9,8 +9,8 @@
     "./primitives.css": "./src/primitives.css"
   },
   "peerDependencies": {
-    "react": "^19.0.0",
-    "lucide-react": "^1.0.0"
+    "lucide-react": "^1.0.0",
+    "react": "^19.0.0"
   },
   "scripts": {
     "build": "tsc --noEmit",
@@ -18,9 +18,11 @@
     "test": "vitest run && tsc -p tsconfig.aug.json"
   },
   "devDependencies": {
-    "typescript": "^5.9.3",
-    "vitest": "^4.0.3",
     "@types/react": "^19.2.7",
-    "react": "^19.2.3"
+    "@types/react-dom": "^19.3.0",
+    "react": "^19.2.3",
+    "react-dom": "^19.3.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.3"
   }
 }
