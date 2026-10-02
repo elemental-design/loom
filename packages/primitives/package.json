@@ -15,7 +15,7 @@
   "scripts": {
     "build": "tsc --noEmit",
     "typecheck": "tsc --noEmit",
-    "test": "vitest run"
+    "test": "vitest run && tsc -p tsconfig.aug.json"
   },
   "devDependencies": {
     "typescript": "^5.9.3",
