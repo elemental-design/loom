@@ -1,0 +1,104 @@
+{
+  "hash": "da99537f0188",
+  "id": "cmp_badge",
+  "irVersion": 1,
+  "name": "Badge",
+  "params": [
+    {
+      "name": "count",
+      "required": true,
+      "type": "number"
+    },
+    {
+      "default": "danger",
+      "name": "tone",
+      "required": false,
+      "type": "enum",
+      "values": [
+        "accent",
+        "danger"
+      ]
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "children": [],
+        "id": "n0.0",
+        "kind": "primitive",
+        "props": {
+          "color": {
+            "cond": {
+              "l": {
+                "param": "tone"
+              },
+              "op": "===",
+              "r": {
+                "lit": "danger"
+              }
+            },
+            "else": {
+              "lit": "onAccent"
+            },
+            "then": {
+              "lit": "onDanger"
+            }
+          },
+          "content": {
+            "cond": {
+              "l": {
+                "param": "count"
+              },
+              "op": ">",
+              "r": {
+                "lit": 99
+              }
+            },
+            "else": {
+              "arg": {
+                "param": "count"
+              },
+              "call": "String"
+            },
+            "then": {
+              "lit": "99+"
+            }
+          },
+          "typography": {
+            "lit": "caption2"
+          }
+        },
+        "type": "Text"
+      }
+    ],
+    "id": "n0",
+    "kind": "primitive",
+    "props": {
+      "background": {
+        "key": {
+          "param": "tone"
+        },
+        "lookup": {
+          "accent": {
+            "lit": "accent"
+          },
+          "danger": {
+            "lit": "danger"
+          }
+        }
+      },
+      "cornerRadius": {
+        "lit": "full"
+      },
+      "height": {
+        "lit": 20
+      },
+      "width": {
+        "lit": 20
+      }
+    },
+    "type": "ZStack"
+  },
+  "source": "components/Badge/Badge.loom.tsx",
+  "version": "1.0.0"
+}

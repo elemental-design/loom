@@ -1,0 +1,228 @@
+{
+  "hash": "57aeeedcc736",
+  "id": "cmp_catalog",
+  "irVersion": 1,
+  "name": "Catalog",
+  "params": [
+    {
+      "name": "heading",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "fields": [
+        {
+          "name": "id",
+          "type": "string"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "image",
+          "type": "string"
+        }
+      ],
+      "name": "items",
+      "required": true,
+      "type": "array"
+    },
+    {
+      "name": "onLoadMore",
+      "required": true,
+      "type": "action"
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "children": [
+          {
+            "children": [],
+            "id": "n0.0.0",
+            "kind": "primitive",
+            "props": {
+              "color": {
+                "lit": "textPrimary"
+              },
+              "content": {
+                "param": "heading"
+              },
+              "typography": {
+                "lit": "title"
+              }
+            },
+            "type": "Text"
+          },
+          {
+            "id": "n0.0.1",
+            "kind": "component",
+            "name": "Badge",
+            "props": {
+              "count": {
+                "lit": 42
+              }
+            },
+            "ref": "cmp_badge"
+          }
+        ],
+        "id": "n0.0",
+        "kind": "primitive",
+        "props": {
+          "align": {
+            "lit": "center"
+          },
+          "justify": {
+            "lit": "spaceBetween"
+          },
+          "width": {
+            "lit": "fill"
+          }
+        },
+        "type": "HStack"
+      },
+      {
+        "children": [],
+        "id": "n0.1",
+        "kind": "primitive",
+        "props": {},
+        "type": "Divider"
+      },
+      {
+        "children": [
+          {
+            "as": "item",
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "id": "n0.2.0.0.0",
+                    "kind": "primitive",
+                    "props": {
+                      "cornerRadius": {
+                        "lit": "full"
+                      },
+                      "height": {
+                        "lit": 44
+                      },
+                      "resizeMode": {
+                        "lit": "cover"
+                      },
+                      "src": {
+                        "field": "image",
+                        "get": {
+                          "var": "item"
+                        }
+                      },
+                      "width": {
+                        "lit": 44
+                      }
+                    },
+                    "type": "Image"
+                  },
+                  {
+                    "children": [],
+                    "id": "n0.2.0.0.1",
+                    "kind": "primitive",
+                    "props": {
+                      "color": {
+                        "lit": "textPrimary"
+                      },
+                      "content": {
+                        "field": "title",
+                        "get": {
+                          "var": "item"
+                        }
+                      },
+                      "typography": {
+                        "lit": "body"
+                      }
+                    },
+                    "type": "Text"
+                  }
+                ],
+                "id": "n0.2.0.0",
+                "kind": "primitive",
+                "props": {
+                  "align": {
+                    "lit": "center"
+                  },
+                  "gap": {
+                    "lit": 3
+                  },
+                  "width": {
+                    "lit": "fill"
+                  }
+                },
+                "type": "HStack"
+              }
+            ],
+            "id": "n0.2.0",
+            "key": {
+              "field": "id",
+              "get": {
+                "var": "item"
+              }
+            },
+            "kind": "repeat",
+            "over": {
+              "param": "items"
+            }
+          }
+        ],
+        "id": "n0.2",
+        "kind": "primitive",
+        "props": {
+          "gap": {
+            "lit": 4
+          },
+          "width": {
+            "lit": "fill"
+          }
+        },
+        "type": "VStack"
+      },
+      {
+        "id": "n0.3",
+        "kind": "component",
+        "name": "Button",
+        "props": {
+          "intent": {
+            "lit": "secondary"
+          },
+          "label": {
+            "lit": "Load more"
+          },
+          "onPress": {
+            "param": "onLoadMore"
+          },
+          "size": {
+            "lit": "sm"
+          }
+        },
+        "ref": "cmp_button"
+      }
+    ],
+    "id": "n0",
+    "kind": "primitive",
+    "props": {
+      "background": {
+        "lit": "surface"
+      },
+      "gap": {
+        "lit": 6
+      },
+      "padding": {
+        "lit": 6
+      },
+      "width": {
+        "lit": "fill"
+      }
+    },
+    "type": "VStack"
+  },
+  "source": "components/Catalog/Catalog.loom.tsx",
+  "version": "1.0.0"
+}

@@ -1,6 +1,7 @@
 import { Command } from "commander"
 import { buildTokens } from "./tokens/build.js"
 import { formatDiagnostic } from "./diagnostics.js"
+import { runExtract } from "./extract/extract.js"
 
 const program = new Command()
 
@@ -23,7 +24,14 @@ program
     if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
   })
 
-program.command("extract").description("extract components to IR").action(notImplemented)
+program
+  .command("extract")
+  .description("extract components to IR")
+  .action(async () => {
+    const diagnostics = await runExtract(process.cwd())
+    for (const d of diagnostics) console.error(formatDiagnostic(d))
+    if (diagnostics.some((d) => d.severity === "error")) process.exit(1)
+  })
 
 program.command("lint").description("run lint rules").action(notImplemented)
 

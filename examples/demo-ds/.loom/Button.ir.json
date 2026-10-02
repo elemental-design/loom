@@ -1,0 +1,246 @@
+{
+  "hash": "e9943d85dd60",
+  "id": "cmp_button",
+  "irVersion": 1,
+  "name": "Button",
+  "params": [
+    {
+      "doc": "Visible label. Localize, never hardcode.",
+      "name": "label",
+      "required": true,
+      "type": "string"
+    },
+    {
+      "doc": "Optional leading icon (lucide name).",
+      "name": "icon",
+      "required": false,
+      "type": "icon"
+    },
+    {
+      "default": "md",
+      "name": "size",
+      "required": false,
+      "type": "enum",
+      "values": [
+        "sm",
+        "md",
+        "lg"
+      ]
+    },
+    {
+      "default": "primary",
+      "name": "intent",
+      "required": false,
+      "type": "enum",
+      "values": [
+        "primary",
+        "secondary",
+        "ghost",
+        "destructive"
+      ]
+    },
+    {
+      "name": "disabled",
+      "required": false,
+      "type": "boolean"
+    },
+    {
+      "name": "onPress",
+      "required": false,
+      "type": "action"
+    }
+  ],
+  "root": {
+    "children": [
+      {
+        "children": [],
+        "id": "n0.0",
+        "kind": "primitive",
+        "props": {
+          "color": {
+            "cond": {
+              "l": {
+                "param": "intent"
+              },
+              "op": "===",
+              "r": {
+                "lit": "primary"
+              }
+            },
+            "else": {
+              "cond": {
+                "l": {
+                  "param": "intent"
+                },
+                "op": "===",
+                "r": {
+                  "lit": "destructive"
+                }
+              },
+              "else": {
+                "lit": "textPrimary"
+              },
+              "then": {
+                "lit": "onDanger"
+              }
+            },
+            "then": {
+              "lit": "onAccent"
+            }
+          },
+          "name": {
+            "param": "icon"
+          },
+          "size": {
+            "key": {
+              "param": "size"
+            },
+            "lookup": {
+              "lg": {
+                "lit": 20
+              },
+              "md": {
+                "lit": 18
+              },
+              "sm": {
+                "lit": 14
+              }
+            }
+          }
+        },
+        "type": "Icon",
+        "when": {
+          "param": "icon"
+        }
+      },
+      {
+        "children": [],
+        "id": "n0.1",
+        "kind": "primitive",
+        "props": {
+          "color": {
+            "cond": {
+              "l": {
+                "param": "intent"
+              },
+              "op": "===",
+              "r": {
+                "lit": "primary"
+              }
+            },
+            "else": {
+              "cond": {
+                "l": {
+                  "param": "intent"
+                },
+                "op": "===",
+                "r": {
+                  "lit": "destructive"
+                }
+              },
+              "else": {
+                "lit": "textPrimary"
+              },
+              "then": {
+                "lit": "onDanger"
+              }
+            },
+            "then": {
+              "lit": "onAccent"
+            }
+          },
+          "content": {
+            "param": "label"
+          },
+          "typography": {
+            "cond": {
+              "l": {
+                "param": "size"
+              },
+              "op": "===",
+              "r": {
+                "lit": "lg"
+              }
+            },
+            "else": {
+              "lit": "callout"
+            },
+            "then": {
+              "lit": "body"
+            }
+          }
+        },
+        "type": "Text"
+      }
+    ],
+    "id": "n0",
+    "kind": "primitive",
+    "props": {
+      "align": {
+        "lit": "center"
+      },
+      "background": {
+        "key": {
+          "param": "intent"
+        },
+        "lookup": {
+          "destructive": {
+            "lit": "danger"
+          },
+          "ghost": {
+            "lit": "transparent"
+          },
+          "primary": {
+            "lit": "accent"
+          },
+          "secondary": {
+            "lit": "surfaceRaised"
+          }
+        }
+      },
+      "cornerRadius": {
+        "lit": "full"
+      },
+      "disabled": {
+        "param": "disabled"
+      },
+      "gap": {
+        "lit": 2
+      },
+      "height": {
+        "lit": "hugging"
+      },
+      "justify": {
+        "lit": "center"
+      },
+      "label": {
+        "param": "label"
+      },
+      "onPress": {
+        "param": "onPress"
+      },
+      "padding": {
+        "key": {
+          "param": "size"
+        },
+        "lookup": {
+          "lg": {
+            "lit": 4
+          },
+          "md": {
+            "lit": 3
+          },
+          "sm": {
+            "lit": 2
+          }
+        }
+      },
+      "width": {
+        "lit": "hugging"
+      }
+    },
+    "type": "Pressable"
+  },
+  "source": "components/Button/Button.loom.tsx",
+  "version": "1.0.0"
+}
