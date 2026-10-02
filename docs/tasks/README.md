@@ -13,6 +13,7 @@ Do tasks in order. Statuses: `todo` / `done`. One task per session; commit when 
 | T06 | IR types, evaluator, extractor | T05 | done |
 | T07 | Lint rules | T06 | done |
 | T08 | Standalone web codegen + drift check | T07 | todo |
+| T09 | Native primitives (RN, react-sketchapp, react-figmaapp) | T04 | todo |
 
 T01–T02 (tokens) and T03–T04 (primitives) are independent tracks after T00 and may be done in either order.
 
