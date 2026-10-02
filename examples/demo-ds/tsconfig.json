@@ -1,7 +1,17 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
-    "jsxImportSource": "react"
+    "jsxImportSource": "react",
+    "moduleResolution": "Bundler",
+    "module": "ESNext"
   },
-  "include": ["components", "generated", "loom.config.ts", "loom.tokens.ts", "vitest.config.ts"]
+  "include": [
+    "components",
+    "app",
+    "generated",
+    "loom.config.ts",
+    "loom.tokens.ts",
+    "vitest.config.ts",
+    "vite.config.ts"
+  ]
 }

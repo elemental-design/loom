@@ -9,7 +9,7 @@ Do tasks in order. Statuses: `todo` / `done`. One task per session; commit when 
 | T02 | Token emitters (CSS, shadcn aliases, TS types) | T01 | done |
 | T03 | Primitive shared types | T00 | done |
 | T04 | Web primitives + primitives.css | T03 | done |
-| T05 | demo-ds fixtures + demo app | T02, T04 | todo |
+| T05 | demo-ds fixtures + demo app | T02, T04 | done |
 | T06 | IR types, evaluator, extractor | T05 | todo |
 | T07 | Lint rules | T06 | todo |
 | T08 | Standalone web codegen + drift check | T07 | todo |
