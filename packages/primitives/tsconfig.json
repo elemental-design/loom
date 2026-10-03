@@ -3,6 +3,6 @@
   "compilerOptions": {
     "jsxImportSource": "react"
   },
-  "include": ["src", "vitest.config.ts"],
+  "include": ["src", "src/native", "vitest.config.ts"],
   "exclude": ["src/**/*.aug.test-d.ts"]
 }

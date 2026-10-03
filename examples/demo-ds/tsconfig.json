@@ -11,6 +11,8 @@
     "generated",
     "loom.config.ts",
     "loom.tokens.ts",
+    "components/Badge/Badge.sketch.tsx",
+    "components/Badge/Badge.figma.tsx",
     "vitest.config.ts",
     "vite.config.ts"
   ]

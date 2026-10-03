@@ -5,12 +5,26 @@
   "type": "module",
   "main": "./src/index.ts",
   "exports": {
-    ".": "./src/index.ts",
-    "./primitives.css": "./src/primitives.css"
+    ".": {
+      "react-native": "./src/native/rn.ts",
+      "default": "./src/index.ts"
+    },
+    "./primitives.css": "./src/primitives.css",
+    "./native": "./src/native/index.ts",
+    "./sketch": "./src/native/sketch.ts",
+    "./figma": "./src/native/figma.ts"
   },
   "peerDependencies": {
     "lucide-react": "^1.0.0",
-    "react": "^19.0.0"
+    "react": "^19.0.0",
+    "react-native": "*",
+    "react-sketchapp": "*",
+    "react-figmaapp": "*"
+  },
+  "peerDependenciesMeta": {
+    "react-native": { "optional": true },
+    "react-sketchapp": { "optional": true },
+    "react-figmaapp": { "optional": true }
   },
   "scripts": {
     "build": "tsc --noEmit",
