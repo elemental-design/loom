@@ -1,4 +1,4 @@
-import { Pressable, Icon, Text } from "@loom/primitives"
+import { Pressable, Icon, Text } from "@loom/primitives/figma"
 import type { ColorName, IconName, SpacingKey, TypographyName } from "@loom/primitives"
 
 export type ButtonSize = "sm" | "md" | "lg"

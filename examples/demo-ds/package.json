@@ -9,12 +9,13 @@
     "test": "vitest run --passWithNoTests"
   },
   "dependencies": {
-    "@loom/primitives": "workspace:*",
     "@loom/compiler": "workspace:*",
-    "lucide-react": "^1.0.0",
+    "@loom/primitives": "workspace:*",
     "class-variance-authority": "^0.7.1",
+    "lucide-react": "^1.0.0",
     "react": "^19.2.3",
-    "react-dom": "^19.2.3"
+    "react-dom": "^19.2.3",
+    "react-test-renderer": "^19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",
